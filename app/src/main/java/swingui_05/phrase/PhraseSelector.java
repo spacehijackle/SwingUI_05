@@ -52,7 +52,6 @@ public class PhraseSelector
                     Text.of(phrase)
                         .self(self -> self.setOpaque(true))
                         .font(new Font("Dialog", Font.PLAIN, 24))
-                        //.frame(Height.of(80))
                         .frame(Width.Infinite, Height.of(80))
                         .padding(16)
                         .background(Color.white),
