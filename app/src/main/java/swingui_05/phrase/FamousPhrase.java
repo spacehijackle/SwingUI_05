@@ -18,7 +18,7 @@ import com.swingui.value.size.UILength.Width;
  * 
  * @author t.yoshida
  */
-public class PhraseSelector
+public class FamousPhrase
 {
     // フレーズテキスト
     private UIValue<String> phrase = UIValue.of("Select a phrase below.");
@@ -85,11 +85,11 @@ public class PhraseSelector
                         .frame(Width.of(100))
                         .onClicked(self -> phrase.set("「エイドリアーン！」")),
 
-                    Button.of("てつや")
+                    Button.of("てつや君")
                         .frame(Width.of(100))
                         .onClicked(self -> phrase.set("「僕は死にましぇん！」")),
 
-                    Button.of("ほなみ")
+                    Button.of("ほなみ ❤")
                         .frame(Width.of(100))
                         .onClicked(self -> phrase.set("「か～んち、●●しよっ！」"))
                 ),
