@@ -27,38 +27,16 @@ public class Spacer
         WxHSize size = WxHSize.of(WxHSize.zero(), lengths);
 
         // 幅・高さスペースの設定
-        if(isInfinite(size.width) || isInfinite(size.height))
+        if(size.width.isInfinite() || size.height.isInfinite())
         {
             // 幅または高さが最大限の場合、柔軟なスペース領域を確保
-            return flexible(new Dimension(size.width.length, size.height.length));
+            return flexible(size);
         }
         else
         {
             // 幅・高さに最大限の値を含まない場合、固定のスペース領域を確保
-            return fixed(new Dimension(size.width.length, size.height.length));
+            return fixed(size);
         }
-    }
-
-    /**
-     * 指定した幅が最大限かどうかを判定する。
-     * 
-     * @param width 幅
-     * @return {@code true}: 最大限, {@code false}: 固定値
-     */
-    private static boolean isInfinite(Width width)
-    {
-        return width == Width.Infinite;
-    }
-
-    /**
-     * 指定した高さが最大限かどうかを判定する。
-     * 
-     * @param height 高さ
-     * @return {@code true}: 最大限, {@code false}: 固定値
-     */
-    private static boolean isInfinite(Height height)
-    {
-        return height == Height.Infinite;
     }
 
     /**
@@ -68,24 +46,26 @@ public class Spacer
      */
     public static PanelWT fill()
     {
-        return flexible(new Dimension(Width.Infinite.length, Height.Infinite.length));
+        return flexible(WxHSize.of(WxHSize.zero(), Width.Infinite, Height.Infinite));
     }
 
     /**
      * 指定したサイズで柔軟なスペース領域を確保する。
      * 
-     * @param dimension サイズ
+     * @param size サイズ
      * @return {@code PanelWT}
      */
-    private static PanelWT flexible(Dimension dimension)
+    private static PanelWT flexible(WxHSize size)
     {
         //
         // レイアウトに応じて PanelWT を拡縮させる場合、
         // PanelWT#setPreferredSize() は設定しない。
         //
         PanelWT panel = new PanelWT();
-        panel.setMinimumSize(new Dimension(0, 0));
-        panel.setMaximumSize(dimension);
+        int minW  = (size.width.isInfinite()  ? 0 : size.width.length);
+        int minH  = (size.height.isInfinite() ? 0 : size.height.length);
+        panel.setMinimumSize(new Dimension(minW, minH));
+        panel.setMaximumSize(new Dimension(size.width.length, size.height.length));
 
         return panel;
     }
@@ -93,19 +73,19 @@ public class Spacer
     /**
      * 指定したサイズで固定のスペース領域を確保する。
      * 
-     * @param dimension サイズ
+     * @param size サイズ
      * @return {@code PanelWT}
      */
-    private static PanelWT fixed(Dimension dimension)
+    private static PanelWT fixed(WxHSize size)
     {
         //
         // サイズ固定の PanelWT を生成する場合、
         // PanelWT#setPreferredSize() を含めて設定する。
         //
         PanelWT panel = new PanelWT();
-        panel.setPreferredSize(dimension);
-        panel.setMinimumSize(dimension);
-        panel.setMaximumSize(dimension);
+        panel.setPreferredSize(new Dimension(size.width.length, size.height.length));
+        panel.setMinimumSize(new Dimension(size.width.length, size.height.length));
+        panel.setMaximumSize(new Dimension(size.width.length, size.height.length));
 
         return panel;
     }

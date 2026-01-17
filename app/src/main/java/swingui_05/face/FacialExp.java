@@ -1,4 +1,4 @@
-package swingui_05;
+package swingui_05.face;
 
 import java.awt.Color;
 

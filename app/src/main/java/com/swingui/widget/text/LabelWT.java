@@ -180,7 +180,7 @@ public class LabelWT<T> extends JLabel implements Widget<LabelWT<T>>
      */
     public LabelWT<T> foreground(Color fgColor)
     {
-        return foreground(new UIValue<>(fgColor));
+        return foreground(UIValue.of(fgColor));
     }
 
     /**

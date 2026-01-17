@@ -43,6 +43,16 @@ public class UILength
         {
             return new Width(length);
         }
+
+        /**
+         * 幅が最大限かどうかを判定する。
+         * 
+         * @return true: 最大限の場合
+         */
+        public boolean isInfinite()
+        {
+            return this == Infinite;
+        }
     }
 
     /**
@@ -67,6 +77,16 @@ public class UILength
         public static Height of(int length)
         {
             return new Height(length);
+        }
+
+        /**
+         * 高さが最大限かどうかを判定する。
+         * 
+         * @return true: 最大限の場合
+         */
+        public boolean isInfinite()
+        {
+            return this == Infinite;
         }
     }
 }

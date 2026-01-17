@@ -79,9 +79,22 @@ public class WidgetHelper
         WxHSize size = WxHSize.of(defaults, lengths);
 
         // サイズ設定
-        target.setMaximumSize(new Dimension(size.width.length, size.height.length));
-        target.setMinimumSize(new Dimension(size.width.length, size.height.length));
-        target.setPreferredSize(new Dimension(size.width.length, size.height.length));
+        if(size.width.isInfinite() || size.height.isInfinite())
+        {
+            // 幅または高さが最大限の場合、柔軟なサイズとして設定 ※setPreferredSize()の設定なし
+            int minW  = (size.width.isInfinite()  ? 0 : size.width.length);
+            int minH  = (size.height.isInfinite() ? 0 : size.height.length);
+            target.setMinimumSize(new Dimension(minW, minH));
+            target.setMaximumSize(new Dimension(size.width.length, size.height.length));
+        }
+        else
+        {
+            // 幅・高さに最大限の値を含まない場合、固定値として設定
+            target.setMaximumSize(new Dimension(size.width.length, size.height.length));
+            target.setMinimumSize(new Dimension(size.width.length, size.height.length));
+            target.setPreferredSize(new Dimension(size.width.length, size.height.length));
+        }
+
         return target;
     }
 }
