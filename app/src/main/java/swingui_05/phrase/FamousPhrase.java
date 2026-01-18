@@ -3,13 +3,16 @@ package swingui_05.phrase;
 import java.awt.Color;
 import java.awt.Font;
 
+import com.swingui.constant.HorizontalAlignment;
 import com.swingui.front.Frame;
 import com.swingui.front.button.Button;
 import com.swingui.front.layout.HStack;
 import com.swingui.front.layout.Spacer;
 import com.swingui.front.layout.VStack;
 import com.swingui.front.text.Text;
+import com.swingui.value.Spacing;
 import com.swingui.value.UIValue;
+import com.swingui.value.gap.Symmetry.Horizontal;
 import com.swingui.value.size.UILength.Height;
 import com.swingui.value.size.UILength.Width;
 
@@ -42,27 +45,31 @@ public class FamousPhrase
             (
                 Spacer.fill(),
 
-                //
-                // フレーズ表示テキスト
-                //
-                HStack.of
+                VStack.of
                 (
-                    Spacer.of(Width.of(24)),
+                    Spacing.of(4),
 
+                    // フレーズタイトル
+                    Text.of("- Famous Phrase -", HorizontalAlignment.Leading)
+                        .font(new Font("Dialog", Font.ITALIC, 12))
+                        .frame(Width.Infinite),
+
+                    //
+                    // フレーズ表示テキスト
+                    //
                     Text.of(phrase)
                         .self(self -> self.setOpaque(true))
                         .font(new Font("Dialog", Font.PLAIN, 24))
                         .frame(Width.Infinite, Height.of(80))
                         .padding(16)
-                        .background(Color.white),
-
-                    Spacer.of(Width.of(24))
-                ),
+                        .background(Color.white)
+                )
+                .padding(Horizontal.of(24)),
 
                 Spacer.of(Height.of(8)),
 
                 //
-                // キャラクター選択ボタン群
+                // キャラクター選択ボタン
                 //
                 HStack.of
                 (
