@@ -45,18 +45,19 @@ public class FamousPhrase
             (
                 Spacer.fill(),
 
+                //
+                // フレーズ表示
+                //
                 VStack.of
                 (
                     Spacing.of(4),
 
-                    // フレーズタイトル
+                    // タイトル
                     Text.of("- Famous Phrase -", HorizontalAlignment.Leading)
                         .font(new Font("Dialog", Font.ITALIC, 12))
                         .frame(Width.Infinite),
 
-                    //
-                    // フレーズ表示テキスト
-                    //
+                    // フレーズ
                     Text.of(phrase)
                         .self(self -> self.setOpaque(true))
                         .font(new Font("Dialog", Font.PLAIN, 24))
