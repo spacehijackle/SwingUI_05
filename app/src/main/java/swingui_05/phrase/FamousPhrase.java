@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import com.swingui.constant.HorizontalAlignment;
+import com.swingui.constant.UIAlignmentX;
 import com.swingui.front.Frame;
 import com.swingui.front.button.Button;
 import com.swingui.front.layout.HStack;
@@ -50,12 +51,13 @@ public class FamousPhrase
                 //
                 VStack.of
                 (
+                    UIAlignmentX.Leading,  // 左寄せ
+
                     Spacing.of(4),
 
                     // タイトル
-                    Text.of("- Famous Phrase -", HorizontalAlignment.Leading)
-                        .font(new Font("Dialog", Font.ITALIC, 12))
-                        .frame(Width.Infinite),
+                    Text.of("- Famous Phrase -")
+                        .font(new Font("Dialog", Font.ITALIC, 12)),
 
                     // フレーズ
                     Text.of(phrase)
