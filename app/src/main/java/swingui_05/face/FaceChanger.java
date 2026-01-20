@@ -77,7 +77,6 @@ public class FaceChanger
 
                     // 表情テキスト
                     Text.of(faceText, HorizontalAlignment.Center)
-                        .self(self -> self.setOpaque(true))
                         .frame(Width.of(80), Height.of(80))
                         .font(new Font(Font.MONOSPACED, Font.BOLD, 12))
                         .foreground(faceFgColor)

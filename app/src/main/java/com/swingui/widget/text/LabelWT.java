@@ -159,6 +159,8 @@ public class LabelWT<T> extends JLabel implements Widget<LabelWT<T>>
     @Override
     public LabelWT<T> background(UIValue<Color> bgColor)
     {
+        if(!isOpaque()) setOpaque(true);  // 背景色を表示するために不透明化
+
         this.bgColor = bgColor;
         this.bgColor.addValueChangeListener(() -> WidgetHelper.invokeToRefresh(LabelWT.this));
         setBackground(bgColor.get());

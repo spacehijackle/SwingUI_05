@@ -60,7 +60,6 @@ public class FamousPhrase
 
                     // フレーズ
                     Text.of(phrase)
-                        .self(self -> self.setOpaque(true))
                         .font(new Font("Dialog", Font.PLAIN, 24))
                         .frame(Width.Infinite, Height.of(80))
                         .padding(16)
