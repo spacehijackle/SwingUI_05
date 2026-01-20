@@ -3,7 +3,6 @@ package swingui_05.phrase;
 import java.awt.Color;
 import java.awt.Font;
 
-import com.swingui.constant.HorizontalAlignment;
 import com.swingui.constant.UIAlignmentX;
 import com.swingui.front.Frame;
 import com.swingui.front.button.Button;
