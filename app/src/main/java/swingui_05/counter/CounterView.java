@@ -2,6 +2,7 @@ package swingui_05.counter;
 
 import java.awt.Font;
 
+import com.swingui.constant.UIDefaults;
 import com.swingui.front.Frame;
 import com.swingui.front.button.Button;
 import com.swingui.front.layout.Spacer;
@@ -25,8 +26,6 @@ public class CounterView
         (
             "カウンター",
 
-            (f) -> f.setSize(400, 300),  // 初期画面サイズ指定
-
             VStack.of
             (
                 Spacer.fill(),
@@ -41,6 +40,7 @@ public class CounterView
 
                 Spacer.fill()
             )
+            .padding(UIDefaults.COMPONENT_GAP)
         );
     }
 }
