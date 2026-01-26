@@ -18,7 +18,7 @@ import com.swingui.value.UIValue;
 public class CounterView
 {
     // カウント値
-    private UIValue<Integer> count = UIValue.of(0);
+    private UIValue<Integer> counter = UIValue.of(0);
 
     public void pushToCount()
     {
@@ -31,12 +31,12 @@ public class CounterView
                 Spacer.fill(),
 
                 // カウント表示
-                Text.of(count)
+                Text.of(counter)
                     .font(new Font("Dialog", java.awt.Font.BOLD, 48)),
 
                 // カウントアップ・ボタン
                 Button.of("Push to increment")
-                    .onClicked(self -> count.set(count.get() + 1)),
+                    .onClicked(self -> counter.set(counter.get() + 1)),
 
                 Spacer.fill()
             )
