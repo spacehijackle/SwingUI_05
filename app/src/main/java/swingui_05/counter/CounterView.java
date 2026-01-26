@@ -25,10 +25,7 @@ public class CounterView
         (
             "カウンター",
 
-            (f) ->
-            {
-                f.setSize(400, 300);  // 初期画面サイズ指定
-            },
+            (f) -> f.setSize(400, 300),  // 初期画面サイズ指定
 
             VStack.of
             (
