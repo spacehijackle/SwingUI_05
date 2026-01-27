@@ -2,10 +2,8 @@ package swingui_05.counter;
 
 import java.awt.Font;
 
-import com.swingui.constant.UIDefaults;
 import com.swingui.front.Frame;
 import com.swingui.front.button.Button;
-import com.swingui.front.layout.Spacer;
 import com.swingui.front.layout.VStack;
 import com.swingui.front.text.Text;
 import com.swingui.value.UIValue;
@@ -18,7 +16,7 @@ import com.swingui.value.UIValue;
 public class CounterView
 {
     // カウント値
-    private UIValue<Integer> counter = UIValue.of(0);
+    private UIValue<Integer> counter = new UIValue<>(0);
 
     public void pushToCount()
     {
