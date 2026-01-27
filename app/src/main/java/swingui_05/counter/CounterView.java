@@ -28,19 +28,15 @@ public class CounterView
 
             VStack.of
             (
-                Spacer.fill(),
-
                 // カウント表示
                 Text.of(counter)
                     .font(new Font("Dialog", java.awt.Font.BOLD, 48)),
 
                 // カウントアップ・ボタン
                 Button.of("Push to increment")
-                    .onClicked(self -> counter.set(counter.get() + 1)),
-
-                Spacer.fill()
+                    .onClicked(self -> counter.set(counter.get() + 1))//,
             )
-            .padding(UIDefaults.COMPONENT_GAP)
+            .padding(24)
         );
     }
 }
