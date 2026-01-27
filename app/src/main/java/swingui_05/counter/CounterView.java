@@ -28,7 +28,7 @@ public class CounterView
             (
                 // カウント表示
                 Text.of(counter)
-                    .font(new Font("Dialog", java.awt.Font.BOLD, 48)),
+                    .font(new Font("Dialog", Font.BOLD, 48)),
 
                 // カウントアップ・ボタン
                 Button.of("Push to increment")
