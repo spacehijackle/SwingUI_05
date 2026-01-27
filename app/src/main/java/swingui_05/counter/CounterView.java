@@ -32,7 +32,7 @@ public class CounterView
 
                 // カウントアップ・ボタン
                 Button.of("Push to increment")
-                    .onClicked(self -> counter.set(counter.get() + 1))//,
+                    .onClicked(self -> counter.set(counter.get() + 1))
             )
             .padding(24)
         );
