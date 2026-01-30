@@ -81,10 +81,15 @@ public class WidgetHelper
         // サイズ設定
         if(size.width.isInfinite() || size.height.isInfinite())
         {
-            // 幅または高さが最大限の場合、柔軟なサイズとして設定 ※setPreferredSize()の設定なし
+            // 幅または高さが最大限の場合、柔軟なサイズとして設定
             int minW  = (size.width.isInfinite()  ? 0 : size.width.length);
             int minH  = (size.height.isInfinite() ? 0 : size.height.length);
             target.setMinimumSize(new Dimension(minW, minH));
+
+            int prefW = (size.width.isInfinite()  ? defaults.width.length  : size.width.length);
+            int prefH = (size.height.isInfinite() ? defaults.height.length : size.height.length);
+            target.setPreferredSize(new Dimension(prefW, prefH));
+
             target.setMaximumSize(new Dimension(size.width.length, size.height.length));
         }
         else
